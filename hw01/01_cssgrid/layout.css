@@ -1,0 +1,99 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial;
+    font-size: 1.1em;
+    background-color: black;
+}
+
+body {
+    display: grid;
+    overflow: hidden;
+    margin: 0px;
+    grid-template-columns: 1fr 2.5fr;
+    grid-template-rows: 1fr 2fr 4fr 2fr;
+    grid-template-areas:
+        "left main"
+        "left main"
+        "left main"
+        "foot foot";
+
+    
+    
+    height: 100vh;
+    color: white;
+}
+
+main {
+    display: grid;
+    grid-area: main;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr 4fr;
+    grid-template-areas:
+        "head"
+        "nav"
+        "feat";
+}
+
+aside, header, nav, section, footer {
+    display: flex;
+    border: dotted 1px white;
+    justify-content: center;
+    align-items: center;
+}
+
+main nav, main section {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+main header {
+    grid-area: head;
+    margin-bottom: 5px;
+}
+
+main nav {
+    grid-area: nav;
+}
+
+main section {
+    grid-area: feat;
+    align-items: flex-end;
+    padding-bottom: 20px;
+} 
+
+aside {
+    grid-area: left;
+}
+
+footer {
+    grid-area: foot;
+    background-color: #2b2b2b;
+}
+
+
+@media screen and (max-width: 700px) {
+    /* Mobile styles go here */
+    body {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 2fr 6fr 1.5fr;
+        grid-template-areas:
+            "main"
+            "main"
+            "main"
+             "foot";
+        }
+    
+    main {
+        grid-area: main;
+    }
+
+    main section {
+        padding-bottom: 100px;
+    }
+
+    aside {
+        display: none;
+    }
+
+    }
+    
