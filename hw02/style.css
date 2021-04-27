@@ -1,0 +1,305 @@
+body {
+    font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
+    color: #fff;
+}
+a, a:hover, a:visited, a:active { 
+    color: #fff;
+    text-decoration: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/**********/
+/* Layout */
+/**********/
+aside, footer, header, nav, section, article {
+    display: flex;
+    flex-direction: column;
+}
+body {
+    overflow: hidden;
+    margin: 0px;
+    display: grid;
+    grid-template-columns: 250px auto;
+    grid-template-rows: auto 100px;
+    grid-template-areas:
+       "left main"
+       "bottom bottom";
+    height: 100vh;
+}
+aside {
+    background-color: #000;
+    grid-area: left;
+}
+header {
+    background: #111;
+    position: fixed;
+    width: calc(100vw - 250px);
+    left: 250px;
+}
+
+main {
+    background: #111;
+    grid-area: main;
+    min-height: calc(350px);
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    z-index: 3;
+}
+
+nav {
+    margin-top: 100px;
+}
+
+footer {
+    background: #222;
+    grid-area: bottom;
+}
+
+
+/***************************/
+/* Accessories & Florishes */
+/***************************/
+::-webkit-scrollbar {
+    width: 16px;
+}
+
+::-webkit-scrollbar-thumb {
+    border: 4px solid transparent;
+    border-radius: 16px;
+    background-clip: padding-box;
+    min-height: 30px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: hsla(0,0%,100%,.3);
+}
+
+/***************************/
+/* Part A: Left Navigation */
+/***************************/
+
+#sidebar a {
+    margin-left: 40px;
+    padding-bottom: 12.5px;
+    padding-top: 12.5px;
+    color: lightgray;
+    font-size: 20px;
+}
+
+#sidebar a:hover {
+    color: white;
+}
+
+i.fab.fa-spotify {
+    font-size: 45px;
+}
+
+i.fas.fa-home, i.fas.fa-search, i.fas.fa-headphones-alt {
+    padding-right: 20px;
+}
+
+aside h1 {
+    padding-left: 20px;
+    padding-bottom: 12.5px;
+    font-size: 30px;
+}
+
+aside#sidebar a.selected {
+    border-left: 3px solid #00c95a;
+    margin-left: 25px;
+    padding-left: 11px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 7.5px;
+}
+
+
+
+
+
+/********************************/
+/* Part B: Header & Nav Styling */
+/********************************/
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-top: 50px;
+    padding-bottom: 30px;
+}
+
+#upgrade {
+    border: 1.5px solid lightgray;
+    color: lightgray;
+    text-transform: uppercase;
+    border-radius: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+#profile {
+    border: 1.5px solid #222;
+    color: lightgray;
+    background-color: #222;
+    text-transform: uppercase;
+    border-radius: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    font-weight: bold;
+}
+
+#upgrade:hover, #profile:hover {
+    background-color: #404040;
+}
+
+header a {
+    margin-right: 30px;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    padding-top: 50px;
+}
+
+#container main nav a {
+    color: lightgray;
+    text-transform: uppercase;
+    font-weight: 450;
+    font-size: 14px;
+    margin-left: 40px;
+    padding-bottom: 5px;
+}
+
+#container main nav a:hover {
+    color: white;
+}
+
+nav a.selected {
+    border-bottom: 3px solid #00c95a;
+}
+
+/*************************/
+/* Part C: Artists Panel */
+/*************************/
+
+#featured-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-top: 50px;
+}
+
+section.artist-card {
+    width: 20%;
+    height: 380px;
+}
+
+section.artist-card div {
+    border: 1px solid #222;
+    border-radius: 15px;
+    background-color: #222;
+    padding: 10px;
+    margin: 10px;
+    background-size: cover;
+    height: 360px;
+    display: flex;
+    flex-direction: column;
+}
+
+section.artist-card div img {
+    background-size: cover;
+    height: auto;
+    width: 100%;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 20px;
+}
+
+section.artist-card div h3 {
+    margin: 0px;
+    padding-left: 10px;
+    padding-top: 20px;
+    font-size: 18px;
+}
+
+section.artist-card div p {
+    margin: 0px;
+    padding-left: 10px;
+    padding-top: 5px;
+    color: lightgray;
+    font-size: 14px;
+}
+
+section.artist-card div span {
+    display: none;
+}
+
+section.artist-card:hover div span i {
+    border: 1px solid #00c95a;
+    border-radius: 50%;
+    background-color: #00c95a;
+    padding: 15px;
+}
+
+section.artist-card:hover div span {
+    display: flex;
+    margin-top: auto;
+    margin-left: auto;
+    margin-bottom: 15px;
+    margin-right: 15px;
+}
+
+
+
+
+/**************************/
+/* Part D: Responsive UIs */
+/**************************/
+
+@media screen and (max-width: 1024px) {
+    /* tablet layout */
+
+    section.artist-card {
+        width: 33%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    /* mobile layout */
+
+    section.artist-card {
+        width: 50%;
+    }
+
+    section.artist-card div img {
+        width: 75%;
+    }
+
+    body {
+        display: block;
+        background-color: #222;
+    }
+
+    aside, #upgrade {
+        display: none;
+    }
+
+    header {
+        width: 100%;
+        left: 0px;
+        padding-top: 50px;
+    }
+
+}
+
+
