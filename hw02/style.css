@@ -182,8 +182,9 @@ nav {
     color: white;
 }
 
-nav a.selected {
+#container main nav a.selected {
     border-bottom: 3px solid #00c95a;
+    color: white;
 }
 
 /*************************/
